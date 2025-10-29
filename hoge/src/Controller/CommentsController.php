@@ -23,4 +23,22 @@ class CommentsController extends AppController
       }
     }
   }
+
+  public function delete($id = null)
+  {
+    $this->request->allowMethod(['post', 'delete']);
+    $comment = $this->Comments->get($id);
+
+    if ($this->Comments->delete($comment)) {
+      $this->Flash->success('Comment delete successful');
+    } else {
+      $this->Flash->error('delete error');
+    }
+
+    return $this->redirect([
+      'controller'=>'Posts',
+      'action'=>'view',
+      $comment->post_id
+    ]);
+  }
 }

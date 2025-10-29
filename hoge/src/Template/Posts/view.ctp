@@ -12,6 +12,13 @@
 <ul>
   <?php foreach ($post->comments as $comment) : ?>
     <li><?= h($comment->body) ?></li>
+      <?=
+        $this->Form->postlink(
+          '[x]',
+          ['controller' => 'Comments','action' => 'delete', $comment->id],
+          ['confirm'=> 'ok?']
+        )
+      ?>
   <?php endforeach ?>
 </ul>
 
