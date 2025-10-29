@@ -26,8 +26,11 @@ class PostsController extends AppController
 
     if ($this->request->is('post')) {
       $post = $this->Posts->patchEntity($post, $this->request->data);
-      $this->Posts->save($post);
-      return $this->redirect(['action'=>'index']);
+      if ($this->Posts->save($post)) {
+        return $this->redirect(['action'=>'index']);
+      } else {
+        debug('あかんてーーーーーーーーーー');
+      }
     }
   }
 }
