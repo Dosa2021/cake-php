@@ -5,27 +5,19 @@ namespace App\Model\Table;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
-class PostsTable extends Table
+class CommentsTable extends Table
 {
   public function initialize(array $config): void
   {
     $this->addBehavior('Timestamp');
-    $this->hasMany('Comments');
+    $this->belongsTo('Posts');
   }
 
   public function validationDefault(Validator $validator)
   {
     $validator
-      ->notEmpty('title')
-      ->requirePresence('title')
       ->notEmpty('body')
-      ->requirePresence('body')
-      ->add('body', [
-        'length' => [
-          'rule' => ['minLength', 10],
-          'message' => 'ダメよ'
-        ]
-      ]);
+      ->requirePresence('body');
     return $validator;
   }
 }
