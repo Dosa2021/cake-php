@@ -13,4 +13,10 @@ class PostsController extends AppController
     $posts = $this->Posts->find('all');
     $this->set('posts', $posts);
   }
+
+  public function view($id = null)
+  {
+    $posts = $this->Posts->get($id);
+    $this->set('post', $posts);
+  }
 }
