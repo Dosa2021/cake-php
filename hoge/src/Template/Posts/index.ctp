@@ -22,6 +22,9 @@
       <a href="<?= $this->Url->build(['action' => 'view', $post->id]) ?>">
         <?= h($post->title) ?>
       </a>
+      <a href="<?= $this->Url->build(['action' => 'edit', $post->id]) ?>">
+        Edit
+      </a>
     </li>
   <?php endforeach ?>
 </ul>
