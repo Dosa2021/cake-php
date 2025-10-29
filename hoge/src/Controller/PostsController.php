@@ -6,7 +6,6 @@ class PostsController extends AppController
 {
   public function index()
   {
-    $this->viewBuilder()->layout('my-layout');
     // $posts = $this->Posts->find('all')
     //   ->order(['title' => 'desc'])
     //   ->limit(2)

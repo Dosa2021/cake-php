@@ -10,6 +10,7 @@
     <?= $this->Html->css('styles.css') ?>
 </head>
 <body>
+    <?= $this->element('my_header'); ?>
     <div class="container clearfix">
         <?= $this->fetch('content') ?>
     </div>
