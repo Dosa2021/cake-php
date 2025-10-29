@@ -19,4 +19,15 @@ class PostsController extends AppController
     $posts = $this->Posts->get($id);
     $this->set('post', $posts);
   }
+
+  public function add()
+  {
+    $post = $this->Posts->newEntity();
+
+    if ($this->request->is('post')) {
+      $post = $this->Posts->patchEntity($post, $this->request->data);
+      $this->Posts->save($post);
+      return $this->redirect(['action'=>'index']);
+    }
+  }
 }

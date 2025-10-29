@@ -2,7 +2,14 @@
   $this->assign('title', 'All Users');
 ?>
 
-<h1>Blog Posts</h1>
+<h1>
+  <?=
+    $this->Html->link(
+      'Add new', ['action' => 'add'], ['class' => ['', '']]
+    );
+  ?>
+  Blog Posts
+</h1>
 <ul>
   <?php foreach ($posts as $post) : ?>
     <li>
