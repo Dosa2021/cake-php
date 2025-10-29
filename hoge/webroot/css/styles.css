@@ -24,6 +24,20 @@ ul > li {
     float: right;
 }
 
+.input {
+    overflow: hidden;
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+.input label {
+    width: 100px;
+    float: left;
+}
+.input input, .input textarea {
+    float: left;
+    width: 250px;
+}
+
 header {
     color: #fff;
     background-color: skyblue;
