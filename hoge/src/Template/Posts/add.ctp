@@ -11,4 +11,5 @@
 <?= $this->Form->input('title'); ?>
 <?= $this->Form->input('body', ['rows'=>'3']); ?>
 <?= $this->Form->button('Add', ['rows'=>'3']); ?>
+<?= $this->Form->end(); ?>
 
