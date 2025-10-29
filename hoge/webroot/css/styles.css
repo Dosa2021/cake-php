@@ -38,6 +38,10 @@ ul > li {
     width: 250px;
 }
 
+.message.error {
+    color: red;
+}
+
 header {
     color: #fff;
     background-color: skyblue;

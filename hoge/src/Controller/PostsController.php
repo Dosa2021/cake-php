@@ -27,9 +27,10 @@ class PostsController extends AppController
     if ($this->request->is('post')) {
       $post = $this->Posts->patchEntity($post, $this->request->data);
       if ($this->Posts->save($post)) {
+        $this->Flash->success('Add successful');
         return $this->redirect(['action'=>'index']);
       } else {
-        debug('あかんてーーーーーーーーーー');
+        $this->Flash->error('Add error');
       }
     }
   }
