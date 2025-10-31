@@ -22,6 +22,16 @@
       <a href="<?= $this->Url->build(['action' => 'view', $post->id]) ?>">
         <?= h($post->title) ?>
       </a>
+      <a href="<?= $this->Url->build(['action' => 'edit', $post->id]) ?>">
+        [edit]
+      </a>
+      <?=
+        $this->Form->postlink(
+          '[x]',
+          ['action' => 'delete', $post->id],
+          ['confirm'=> 'ok?']
+        )
+      ?>
     </li>
   <?php endforeach ?>
 </ul>

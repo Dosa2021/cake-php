@@ -34,4 +34,35 @@ class PostsController extends AppController
       }
     }
   }
+
+  public function edit($id = null)
+  {
+    $post = $this->Posts->get($id);
+    // Note: viewに渡すにはこれが必要？
+    $this->set('post', $post);
+
+    if ($this->request->is(['post', 'patch', 'put'])) {
+      $post = $this->Posts->patchEntity($post, $this->request->data);
+      if ($this->Posts->save($post)) {
+        $this->Flash->success('Edit successful');
+        return $this->redirect(['action'=>'index']);
+      } else {
+        $this->Flash->error('Edit error');
+      }
+    }
+  }
+
+  public function delete($id = null)
+  {
+    $this->request->allowMethod(['post', 'delete']);
+    $post = $this->Posts->get($id);
+
+    if ($this->Posts->delete($post)) {
+      $this->Flash->success('delete successful');
+    } else {
+      $this->Flash->error('delete error');
+    }
+
+    return $this->redirect(['action'=>'index']);
+  }
 }
