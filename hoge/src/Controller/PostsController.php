@@ -16,7 +16,10 @@ class PostsController extends AppController
 
   public function view($id = null)
   {
-    $posts = $this->Posts->get($id);
+    // $posts = $this->Posts->get($id);
+    $posts = $this->Posts->get($id, [
+      'contain' => 'Comments'
+    ]);
     $this->set('post', $posts);
   }
 
